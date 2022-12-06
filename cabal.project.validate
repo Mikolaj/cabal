@@ -23,6 +23,9 @@ write-ghc-environment-files: never
 program-options
   ghc-options: -fno-ignore-asserts -v3
 
+package *
+  ghc-options: -v3
+
 package Cabal-syntax
   ghc-options: -Werror
 package Cabal

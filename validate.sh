@@ -21,7 +21,7 @@ LIBONLY=false
 DEPSONLY=false
 DOCTEST=false
 BENCHMARKS=false
-VERBOSE=false
+VERBOSE=true
 HACKAGETESTSALL=false
 
 TARGETS=""
@@ -368,7 +368,7 @@ step_time_summary() {
 
 step_build() {
 print_header "build"
-ghc-pkg describe resolv
+ghc-pkg describe resolv --package-db /home/runner/.cabal/store/ghc-9.4.2/package.db/
 timed $CABALNEWBUILD $TARGETS --dry-run || exit 1
 $CABALPLAN topo --builddir=$BUILDDIR || exit 1
 timed $CABALNEWBUILD $TARGETS || exit 1
